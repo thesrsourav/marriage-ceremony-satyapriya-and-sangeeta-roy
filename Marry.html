@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
+		<meta charset="utf-8" />
+		<title>Title</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <style>
+	body {
+  background: #000;
+    }
+    #text{
+    padding-top: 1vmin;
+    padding-buttom: 2vmin;
+    font-size: 18vmin;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    color:#800000;
+    font-family: 'Handlee', cursive;
+    
+    }
+    #myDIV {
+    margin: auto;
+    position: absolute;
+    left: 25%;
+    top: 40%;
+    border: 10px black;
+    width: 45vmin;
+    height: 45vmin;
+    background-color: #0000CD;
+    color: white;
+    text-align: center;
+    font-size: 5vmin;
+    font-family: Aclonica;
+    -webkit-animation: mymove 3s infinite linear; 
+    
+/* Chrome, Safari*/
+    animation: mymove 3s infinite linear;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes mymove {
+    25% {-webkit-transform: rotate(30deg);}
+    50% {background-color: #fff; color: #000;}
+    75% {-webkit-transform: rotate(-30deg);}
+}
+
+/* Standard syntax */
+@keyframes mymove {
+    25% {-webkit-transform: rotate(30deg);}
+    50% {background-color: #fff; color: #000;}
+    75% {-webkit-transform: rotate(-30deg);}
+}
+#innerDIV {
+transform: translate(-50%,-50%);
+position: absolute;
+left: 50%;
+top: 50%;
+}
+#typewriter {
+	padding: 10vmin;
+	font-size: 4vmin;
+	color: white;
+	position: absolute;
+     buttom: 0;
+     left: 0;
+     right: 0;
+     top: 150vmin;
+	text-align: center;
+-webkit-animation: color-change 20s infinite;
+   -moz-animation: color-change 20s infinite;
+     -o-animation: color-change 20s infinite;
+    -ms-animation: color-change 20s infinite;
+        animation: color-change 20s infinite;
+  }
+</style>
+<body>
+<div id ="body">
+  <div id ="text">Happy Marriage Life</div>
+  <div id ="myDIV"> <div id ="innerDIV"> Satyapriya & Sangeeta Roy</div>
+  </div>
+  <div id="typewriter"></div>
+</div>
+
+<!--canvas></canvas-->
+		<div id='text'></div>
+		<script>
+			let hue = 0;
+			let d = document.getElementById('text');
+			const update = function() {
+				d.style.background = 'hsl(' + hue + ', 100%, 50%)';
+			};
+			setInterval(function() {
+				hue = (hue+1) % 360;
+				update();
+			}, 10);
+		</script>
+
+<script type="text/javascript">
+(function() {
+
+	// Error Tracking
+	window.onerror = function(errorMsg, url, lineNumber) {
+		alert("JavaScript Error!\n\nMassage: " + errorMsg + "\nURL: " + url + "\nLine: " + lineNumber + "\n");
+	};
+
+})();
+
+var tw = document.getElementById("typewriter");
+var quotes = [
+"Hello, it's Sourav who has made this.",
+"You are two beautiful humble people with a kind heart,",
+"now teamed as a man and a wife.",
+"On this beautiful and lovely occasion I wish you a day filled with cherished moments..",
+"Congratulations on tying the knot!",
+"that you both will remember for the rest of your lives.",
+"Thank you...."
+];
+var quote = quotes[0];
+var b = 0;
+var c = 0;
+
+var tick = function() {
+	tw.innerHTML = quote.substring(0, c);
+	c++;
+	if (c < quote.length) {
+		setTimeout(tick, 50);
+	} else {
+		c = 0;
+		b++;
+		if (b >= quotes.length) b = 0;
+		quote = quotes[b];
+		setTimeout(tick, 3000);
+	}
+};
+
+tick();
+
+</script>
+
+</body>
+</html>
